@@ -1,0 +1,15 @@
+<%- include('partials/header');%>
+<h1>Home</h1>
+<p><%=startingContent%></p>
+<% for (let i=0;i<posts.length;i++){%>
+    <h1><%=posts[i].title%></h1>
+    <%let content;%>
+    <%if(posts[i].body.length>100){%>
+       <% content=posts[i].body.substr(0,99)+'...';%>
+       <p><%= content%> <a href="/posts/<%=posts[i].title%>">Learn more</a></p>
+    <%}else{%>
+        <p><%=posts[i].body%></p>
+    <%}%>
+    
+<% }%>
+<%-include('partials/footer');%>
